@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+    
+    background-size: 150% 100%;
+
+   animation: color 15s ease-in-out infinite;
+}
+
+@keyframes color {
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+    
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.side-image {
+    max-height: 100vh;
+    
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 10px 10px 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 500;
+    text-align: center;
+}
+
+.text {
+    position: relative;
+    font-size: 45px;
+    font-weight: 500;
+}
+
+.typing-animation {
+    flex-wrap: wrap;
+    overflow: hidden;
+    border-right: 2px solid orange;
+    width: 0;
+    /* Prevents text from wrapping */
+    animation: typing 3s steps(30) infinite alternate, blink-caret 0.5s step-end infinite;
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: orange;
+    }
+}
+
+    
+
+.box-area {
+    max-width: 930px;
+    width: 100%;
+}
+
+.right-box {
+    padding: 40px 30px 40px 40px;
+}
+
+input[type="text"]::placeholder {
+    font-size: 12;
+}
+
+input[type="date"]::placeholder {
+    font-size: 12px;
+}
+
+::placeholder {
+    font-size: 14px;
+}
+
+.rounded-4 {
+    border-radius: 10px;
+}
+
+.rounded-5 {
+    border-radius: 10px;
+}
+
+.savebtn {
+    padding: 4px;
+    height: auto;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.savebtn:hover, .savebtn:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.savebtn:active {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+
+@media only screen and (max-width: 768px) {
+    .box-area {
+        margin: 0 10px;
+    }
+
+    .typing-animation {
+        font-size: 30px;
+    }
+
+    .side-image{
+        padding: 20px;
+        max-height: 130px;
+    }
+    .left-box {
+        height: auto;
+        padding: 30px;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+
+    .text {
+        font-size: 25px;
+    }
+
+    .right-box {
+        padding: 20px;
+    }
+}
+
+/*------------ Login container ------------*/
+.box-area{
+    width: 930px;
+}
+/*------------ Right box ------------*/
+.right-box{
+    padding: 40px 30px 40px 40px;
+}
+
+
+/*------------ For small screens------------*/
+@media only screen and (max-width: 768px){
+     .box-area{
+        margin: 0 10px;
+     }
+     .left-box{
+        height: 100px;
+        overflow: hidden;
+     }
+     .right-box{
+        padding: 20px;
+     }
+}

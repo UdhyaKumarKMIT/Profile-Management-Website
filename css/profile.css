@@ -1,0 +1,322 @@
+body{
+    margin-top:20px;
+
+    text-align: left;
+   
+    font-family: 'Poppins', sans-serif;
+ 
+}
+.main-body {
+    padding: 15px;
+}
+.card {
+    box-shadow: 0 1px 3px 0 rgba(250, 3, 234, 0.1), 0 1px 2px 0 rgba(227, 18, 157, 0.06);
+}
+ 
+
+.edit-input {
+    display: none;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    transition: border-bottom ease-in 0.3s;
+}
+
+.edit-input:focus {
+    border-bottom: 2px solid #007bff;
+}
+
+.fa-pencil {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+.copy-tooltip {
+    position: absolute;
+    background-color: rgba(26, 16, 212, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    pointer-events: none; /* Ensure tooltip doesn't interfere with mouse events */
+}
+
+/* Styling for the input fields */
+.edit-input {
+    display: none;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    font-size: 1rem;
+    transition: border-bottom ease-in 0.3s;
+    width: 70%;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    padding: 0.25rem 0;
+}
+.float-right{
+    float: inline-end;
+}
+.rborder {
+    border: 3px solid rgb(196, 21, 219);
+    background-image: linear-gradient(60deg, #ed7760 30%, #872f83 70%);
+    background-size: 200% 150%; /* Adjust to make the gradient more noticeable */
+    animation: color1 10s ease-in-out infinite;
+}
+
+@keyframes color1 {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+.link {
+    max-width: 165px; /* Adjust the max-width as needed */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.savebtn, .addbtn{
+    cursor: pointer;
+    font-weight: 500;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.text-secondary{
+    color: white;
+    font-size: 17px;
+}
+
+
+.savebtn:hover,.addbtn:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.175);
+}
+
+.savebtn:active, .addbtn:active {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+
+.logout, .edit{
+    cursor: pointer;
+    font-weight: 400;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.logout:hover, .edit:hover {
+    transform: scale(1.05);
+}
+
+.plusbtn{
+    cursor: pointer;
+    font-weight: 1000;
+    transition: box-shadow 0.2s ease, transform 0.3s ease;
+}
+.plusbtn:hover{
+    transform: scale(1.3);
+}
+
+/* Focus state styling for the input fields */
+.edit-input:focus {
+    border-bottom: 2px solid #007bff;
+}
+
+input[type="text"] {
+    box-sizing: border-box;
+}
+
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+    border: 3px solid rgb(196, 21, 219);
+
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+.h-100 {
+    height: 100%!important;
+}
+.shadow-none {
+    box-shadow: none!important;
+}
+
+
+.project-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: 90%;
+}
+
+.project-url {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.project-description {
+    font-size: 19px;
+    color: black;
+    text-indent: 40px;
+    overflow-y: auto;
+    font-weight: 500;
+   
+    
+}
+.project-descriptionform{
+    min-height: 130px;
+}
+/* Responsive design */
+
+@media (max-width: 768px) {
+    .project-title {
+        font-size: 20px;
+        width: 85%;
+    }
+    .project-url {
+        font-size: 15px;
+    }
+    .project-description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-title {
+        font-size: 17px;
+        
+    }
+    .project-url {
+        font-size: 13px;
+    }
+    .project-description {
+        font-size: 15px;
+    }
+}
+.icons {
+    cursor: pointer;
+    color: #007bff;
+    font-size: 20px;
+}
+
+.new{
+    display: flex;
+}
+.icons i {
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease; /* Transition for transform and color */
+}
+
+.icons i:hover {
+    /* Change color to blue on hover */
+    transform: scale(1.2); /* Scale up the icon on hover */
+    box-shadow: 0 0 7px rgba(39, 126, 255, 0.5);
+}
+
+
+.card-title{
+    font-weight: 700;
+}
+
+
+  /* Custom CSS styles */
+  .project-description {
+    width: 100%;
+    height: 200px;
+    resize: vertical; /* Allow vertical resizing */
+}
+
+i{
+    color: rgb(73, 17, 204);
+}
+
+/* Keyframes for smooth background gradient animation */
+@keyframes color {
+0% {
+background-position: 0 50%;
+}
+50% {
+background-position: 100% 50%;
+}
+100% {
+background-position: 0 50%;
+}
+}
+
+/* Card body with gradient background and glowing pink shadow */
+.card-body, li{
+background-image: linear-gradient(90deg, #e6654b 10%, #872f83 120%);
+background-size: 250% 250%; /* Adjust to make the gradient more noticeable */
+animation: color 5s ease-in-out infinite; /* Smooth animation */
+color: white;
+font-size: 17px;
+box-shadow: 0 0 15px rgba(202, 34, 139, 0.5), /* Outer glow */
+        0 0 30px rgba(202, 34, 139, 0.3); /* Medium glow */
+        /* Inner glow */
+transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Optional: Add a hover effect for the card body */
+.card-body:hover {
+box-shadow: 0 0 20px rgba(202, 34, 139, 0.7), /* Outer glow */
+        0 0 40px rgba(202, 34, 139, 0.5); /* Medium glow */
+        
+}
+a{
+color: rgb(73, 17, 204);
+}
+a:hover {
+color: #FF0000; /* Change text color on hover */
+text-decoration: underline; /* Underline text on hover */
+transform: scale(1.1) rotate(5deg); /* Example transformation on hover */
+/* Add any other styles you want to apply on hover */
+}
+
+.card .project-description{
+    background-color: #ed7760;}
+
+.project-description .custom-text{
+    font-weight: 600;
+   
+}
+.custom-text {
+    color: rgb(78, 20, 75);
+    font-weight: 600;
+    
+}

@@ -1,0 +1,406 @@
+* {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+            scroll-behavior: smooth;
+            font-family: 'Open Sans', sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            background-image: url('assets/bg.jpg'); /* Background image URL */
+            background-size: cover; /* Cover the entire background */
+            background-position: center; /* Center the background image */
+            background-repeat: repeat-y /* No repeat */
+        }
+        .navbar {
+            background: transparent; /* Semi-transparent background for navbar */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            width: 100%;
+            padding: 27px 15%;
+            align-items: center;
+            justify-content: space-between;
+            transition: all .50s ease;
+        }
+        .navbar .logo {
+            font-size: 27px;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+        .navbar a {
+            color: #fff;
+            font-size: 19px;
+            padding: 14px 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.2); 
+            border-radius: 10px;
+        }
+        
+        .text-content {
+            margin-top: 20px;
+            max-width: 600px;
+            padding: 20px;
+            text-align: center;
+        }
+        .text-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .text-content h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        .text-content p {
+            font-weight: 800;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        .container{  
+            width: auto; 
+            background-image: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3));
+            background-size: cover;
+            background-repeat: repeat-y;
+            background-position: bottom center;
+            padding: 0;
+            height: fit-content;
+        }
+        section {
+            
+            padding: 70px 17% 60px;
+            height: 100vh;
+        }
+        .home {
+            position: relative;
+            width: 100%;
+           
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .home-text h5 {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+        }
+        .home-text h1 {
+            font-size: 50px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+        .home-text p {
+            font-size: 19px;
+            font-weight: 600;
+            line-height: 30px;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .home-text a {
+            background: #fff;
+            font-weight: 700;
+            font-size: 17px;
+            color: #202020;
+            padding: 10px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.5s ease;
+        }
+        .home-text a:hover {
+            background: transparent;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        @media only screen and (max-width: 330px) {
+            .navbar {
+                padding: 10px 2%; /* Adjusted padding for navbar */
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .navbar a {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+           
+             .header-text{
+                height: fit-content;
+             }
+             .home{
+                height: fit-content;
+             }
+
+             .home-text h1 {
+                font-size: 16px;
+            }
+            .home-text h5 {
+                font-size: 13px;
+            }
+            .home-text p {
+                font-size: 10px;
+            }
+            .text-content{
+                height: fit-content;
+            }
+            .text-content h1 {
+                font-size: 19px;
+            }
+            .text-content h3 {
+                font-size: 17px;
+            }
+            .text-content p {
+                font-size: 16px;
+            }
+        }
+        @media only screen and (max-width: 455px) {
+            .navbar {
+                padding: 10px 5%; /* Adjusted padding for navbar */
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .home{
+                height: 70vh;
+            }
+            .home-text h1{
+                height: fit-content;
+                font-size: 20px;
+            }
+            .text-content{
+                height: fit-content;
+            }
+            .header-text{
+                height: fit-content;
+            }
+        
+            .home-text h1 {
+                font-size: 19px;
+            }
+            .home-text h5 {
+                font-size: 15px;
+            }
+            .home-text p {
+                font-size: 12px;
+            }
+
+            .text-content{
+                height: fit-content;
+            }
+            .text-content h1 {
+                font-size: 21px;
+            }
+            .text-content h3 {
+                font-size: 19px;
+            }
+            .text-content p {
+                font-size: 19px;
+            }
+        }
+        /* Small screens (max-width: 768px) */
+        @media only screen and (max-width: 768px) {
+            section,
+            .home {
+                padding: 70px 10%; /* Adjusted padding */
+            }
+            .navbar {
+                padding: 10px 5%; /* Adjusted padding for navbar */
+            }
+
+            .navbar a {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+         
+
+            .home-text h1 {
+                font-size: 36px;
+            }
+            .home-text h5 {
+                font-size: 17px;
+            }
+            .home-text p {
+                font-size: 17px;
+            }
+            .text-content h1 {
+                font-size: 36px;
+            }
+            .text-content h3 {
+                font-size: 18px;
+            }
+            .text-content p {
+                font-size: 16px;
+            }
+            header{
+                height: 77px;
+            }
+        }
+        /* Medium screens (max-width: 992px) */
+        @media only screen and (max-width: 992px) {
+            .home-text h1 {
+                font-size: 40px;
+            }
+            .home-text h5 {
+                font-size: 18px;
+            }
+            .home-text p {
+                font-size: 18px;
+            }
+            .header-text {
+                height: 90vh;
+            }
+            .text-content {
+                max-width: 500px;
+                padding: 20px;
+            }
+            .text-content h1 {
+                font-size: 40px;
+            }
+            .text-content h3 {
+                font-size: 20px;
+            }
+            .text-content p {
+                font-size: 16px;
+            }
+        }
+        /* Large screens (max-width: 1200px) */
+        @media only screen and (max-width: 1200px) {
+            .home-text h1 {
+                font-size: 48px;
+            }
+           
+            .home-text h5 {
+                font-size: 20px;
+            }
+            .home-text p {
+                font-size: 20px;
+            }
+            .header-text {
+                height: 100vh;
+            }
+            .text-content {
+                max-width: 600px;
+                padding: 25px;
+            }
+            .text-content h1 {
+                font-size: 48px;
+            }
+            .text-content h3 {
+                font-size: 22px;
+            }
+            .text-content p {
+                font-size: 18px;
+            }
+        }
+        header {
+    display: flex;
+    height: 85px;
+    position: sticky;
+    top: 0; /* Ensure the header sticks to the top */
+    z-index: 1000; /* Ensure the header is above other elements */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+header.scrolled {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+}
+
+/* Keyframes for animations */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply animations */
+.logo {
+    animation: slideInLeft 2s ease-in-out;
+}
+
+nav{
+    animation: slideInRight 2s ease-in-out;
+}
+
+
+
+  
+.header-text {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    opacity: 1;
+    
+}
+
+
+.home-text {
+    opacity: 0; /* Initial opacity: 0 */
+    transform: translateY(20px); /* Initial translate: 20px down */
+    transition: opacity 1.5s, transform 1.5s; /* Transition duration: 1.5s */
+  }
+  
+  .home-text.loaded {
+    opacity: 1; /* Final opacity: 1 */
+    transform: translateY(0); /* Final translate: 0 */
+  }
+
+
+  .home-text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 2s forwards; /* Animation name: fadeInUp, duration: 1.5s, fill-mode: forwards */
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
