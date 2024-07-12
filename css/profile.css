@@ -240,12 +240,12 @@ input[type="text"] {
 }
 .icons i {
     display: inline-block;
-    transition: transform 0.3s ease, color 0.3s ease; /* Transition for transform and color */
+    transition: transform 0.2s ease, color 0.3s ease; /* Transition for transform and color */
 }
 
 .icons i:hover {
     /* Change color to blue on hover */
-    transform: scale(1.2); /* Scale up the icon on hover */
+    transform: scale(1.5); /* Scale up the icon on hover */
     box-shadow: 0 0 7px rgba(39, 126, 255, 0.5);
 }
 
@@ -281,21 +281,21 @@ background-position: 0 50%;
 
 /* Card body with gradient background and glowing pink shadow */
 .card-body, li{
-background-image: linear-gradient(90deg, #e6654b 10%, #872f83 120%);
+background-image: linear-gradient(90deg, #d45f47 10%, #872f83 120%);
 background-size: 250% 250%; /* Adjust to make the gradient more noticeable */
-animation: color 5s ease-in-out infinite; /* Smooth animation */
+animation: color 7s ease-in-out; /* Smooth animation */
 color: white;
 font-size: 17px;
-box-shadow: 0 0 15px rgba(202, 34, 139, 0.5), /* Outer glow */
-        0 0 30px rgba(202, 34, 139, 0.3); /* Medium glow */
+box-shadow: 0 0 10px rgba(202, 34, 139, 0.5), /* Outer glow */
+        0 0 10px rgba(202, 34, 139, 0.3); /* Medium glow */
         /* Inner glow */
-transition: box-shadow 0.3s ease-in-out;
+transition: box-shadow 0.2s ease-in-out;
 }
 
 /* Optional: Add a hover effect for the card body */
 .card-body:hover {
-box-shadow: 0 0 20px rgba(202, 34, 139, 0.7), /* Outer glow */
-        0 0 40px rgba(202, 34, 139, 0.5); /* Medium glow */
+box-shadow: 0 0 27px rgba(202, 34, 139, 0.7), /* Outer glow */
+        0 0 27px rgba(202, 34, 139, 0.5); /* Medium glow */
         
 }
 a{
@@ -313,10 +313,66 @@ transform: scale(1.1) rotate(5deg); /* Example transformation on hover */
 
 .project-description .custom-text{
     font-weight: 600;
+    color: rgb(77, 6, 73);
    
 }
 .custom-text {
-    color: rgb(78, 20, 75);
+    color: rgb(77, 6, 73);
     font-weight: 600;
     
+}
+
+.custom-text1 {
+    color: white;
+    font-weight: 600;
+    
+}
+.fieldname{
+    color: rgb(77, 6, 73);
+    font-weight: 700;
+    
+}
+
+
+.cursor, .cursor2 {
+    position: fixed;
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    
+}
+
+.cursor {
+    width: 40px;
+    height: 40px;
+    border: 2px solid blueviolet;
+   pointer-events: none;
+    transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.cursor2 {
+    pointer-events: none;
+    width: 8px;
+    height: 8px;
+    background-color: #c6c6c6;
+    transition: opacity 0.5s ease;
+}
+
+.cursor.active {
+    transform: translate(-50%,-50%) scale(1.3);
+    background-color: #c6c6c6;
+    opacity: .3;
+}
+
+.cursor.hover {
+    background-color: #c6c6c6;
+    opacity: .5;
+}
+
+.cursor2.active {
+    opacity: 0;
+}
+
+.cursor2.hover {
+    opacity: 0;
 }

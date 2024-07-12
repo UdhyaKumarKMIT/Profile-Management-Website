@@ -7,3 +7,13 @@ document.addEventListener('scroll', () => {
         header.classList.remove('scrolled');
     }
 });
+function profilecheck() {
+    var sid = localStorage.getItem('sid');
+    if (!sid) {
+        alert('Please login to access the Profile page.');
+        window.location.href = 'login.html'; 
+        return false; r
+    }
+   
+    return true;
+}

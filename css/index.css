@@ -59,7 +59,7 @@
             margin-bottom: 10px;
             text-transform: uppercase;
         }
-        .text-content h1 {
+        .text-content h2 {
             font-size: 60px;
             margin-bottom: 20px;
         }
@@ -98,7 +98,7 @@
             text-transform: uppercase;
             letter-spacing: 6px;
         }
-        .home-text h1 {
+        .home-text h2 {
             font-size: 50px;
             font-weight: 900;
             line-height: 1.2;
@@ -146,7 +146,7 @@
                 height: fit-content;
              }
 
-             .home-text h1 {
+             .home-text h2 {
                 font-size: 16px;
             }
             .home-text h5 {
@@ -158,7 +158,7 @@
             .text-content{
                 height: fit-content;
             }
-            .text-content h1 {
+            .text-content h2 {
                 font-size: 19px;
             }
             .text-content h3 {
@@ -177,7 +177,7 @@
             .home{
                 height: 70vh;
             }
-            .home-text h1{
+            .home-text h2{
                 height: fit-content;
                 font-size: 20px;
             }
@@ -188,7 +188,7 @@
                 height: fit-content;
             }
         
-            .home-text h1 {
+            .home-text h2 {
                 font-size: 19px;
             }
             .home-text h5 {
@@ -201,7 +201,7 @@
             .text-content{
                 height: fit-content;
             }
-            .text-content h1 {
+            .text-content h2 {
                 font-size: 21px;
             }
             .text-content h3 {
@@ -227,7 +227,7 @@
             }
          
 
-            .home-text h1 {
+            .home-text h2 {
                 font-size: 36px;
             }
             .home-text h5 {
@@ -236,7 +236,7 @@
             .home-text p {
                 font-size: 17px;
             }
-            .text-content h1 {
+            .text-content h2 {
                 font-size: 36px;
             }
             .text-content h3 {
@@ -251,7 +251,7 @@
         }
         /* Medium screens (max-width: 992px) */
         @media only screen and (max-width: 992px) {
-            .home-text h1 {
+            .home-text h2 {
                 font-size: 40px;
             }
             .home-text h5 {
@@ -267,7 +267,7 @@
                 max-width: 500px;
                 padding: 20px;
             }
-            .text-content h1 {
+            .text-content h2 {
                 font-size: 40px;
             }
             .text-content h3 {
@@ -279,7 +279,7 @@
         }
         /* Large screens (max-width: 1200px) */
         @media only screen and (max-width: 1200px) {
-            .home-text h1 {
+            .home-text h2 {
                 font-size: 48px;
             }
            
@@ -296,7 +296,7 @@
                 max-width: 600px;
                 padding: 25px;
             }
-            .text-content h1 {
+            .text-content h2 {
                 font-size: 48px;
             }
             .text-content h3 {

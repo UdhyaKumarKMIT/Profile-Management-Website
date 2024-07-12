@@ -10,14 +10,19 @@ $(document).ready(function() {
             method: "POST",
             data: formdata,
             success: function(response) {
-                if(response.trim() === "Login successful") {
-                    window.location.href = "profile.html";
+                var data=JSON.parse(response);
+                alert(data.status);
+                if (data.status === 'success') {
+                    localStorage.setItem('sid', data.sid); 
+                    window.location.href='profile.html';// Store SID in local storage
+                   
                 } else {
-                    alert(response);
+                    alert(data.message);
+                   
                 }
             },
-            error: function() {
-                alert("Error in processing data");
+            error: function(xhr, status, error) {
+                console.error('AJAX Error:', status, error);
             }
         });
     });

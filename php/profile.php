@@ -1,5 +1,6 @@
 <?php
 session_start();
+             
 require 'vendor/autoload.php'; // Include MongoDB client library
 
 use MongoDB\Client as MongoClient;
@@ -10,14 +11,31 @@ $mongoClient = new MongoClient("mongodb://localhost:27017");
 $db = $mongoClient->guvi;
 $collection = $db->user_profile;
 
-// Get the logged-in user's email from the session
-$email = $_SESSION['email'];
+
+
+require 'vendor/autoload.php'; // Autoload Predis library
+$redis = new Predis\Client([
+    'scheme' => 'tcp',
+    'host'   => '127.0.0.1',
+    'port'   => 6379,
+]);
+
+  $sid=$_POST['sid'];
+  
+    if ($redis->exists($sid)) {
+        $user_data = $redis->hgetall($sid);
+        $email = $user_data['email'];
+        $user = $user_data['username'];
+
+    }  
+
 
 if (isset($_POST['formaction']))
 {
     $formaction=$_POST['formaction'];
 
     if($formaction === 'update_details'){
+
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $phone = $_POST['phone'];

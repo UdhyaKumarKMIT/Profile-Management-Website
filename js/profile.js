@@ -1,6 +1,12 @@
 var data;
 var numProjects;
 
+function handleKeyPress(event, fieldName) {
+    if (event.key === 'Enter') {
+        saveText(fieldName);
+    }
+}
+
 function makeEditable(field) {
     var textElement = document.getElementById(field + 'Text');
     var inputElement = document.getElementById(field + 'Input');
@@ -19,12 +25,22 @@ function saveText(field) {
     var pencilElement = document.getElementById('pencil' + field);
     var updatedValue = inputElement.value;
 
+    if (updatedValue === textElement.innerText.trim()) {
+        // No change, do not proceed
+        textElement.style.display = "inline";
+        inputElement.style.display = "none";
+        pencilElement.style.display = "inline-block";
+        return; // Exit the function early
+    }
+
+
     $.ajax({
         url: 'php/profile.php',
         method: 'POST',
         data: {
             formaction: 'Update' + field,
-            value: updatedValue
+            value: updatedValue,
+            sid:localStorage.getItem('sid'),
         },
         success: function(response) {
             const data = JSON.parse(response);
@@ -62,7 +78,8 @@ function savelink(field) {
         method: 'POST',
         data: {
             formaction: 'Update' + field,
-            value: updatedValue
+            value: updatedValue,
+            sid:localStorage.getItem('sid')
         },
         success: function(response) {
             const data = JSON.parse(response);
@@ -110,15 +127,21 @@ function getformdata() {
         update_form.querySelector('#editaddress').value = user.address;
     }
 }
-
 $(document).ready(function() {
     $('#editForm').on('submit', function(event) {
         event.preventDefault();
-
+        
+        // Serialize form data
+        var formData = $(this).serialize();
+        
+        // Add additional parameters to data object
+        var sid = localStorage.getItem('sid');
+        formData += '&formaction=update_details&sid=' + sid;
+        
         $.ajax({
             url: 'php/profile.php',
             type: 'POST',
-            data: $(this).serialize() + '&formaction=update_details',
+            data: formData,
             dataType: 'json',
             success: function(response) {
                 if (response.status === 'success') {
@@ -133,7 +156,7 @@ $(document).ready(function() {
                     $('#roleText').text(user.role);
                     $('#instituteText').text(user.institute);
                     $('#editModal').modal('hide');
-                    alert('Profile updated successfully !');
+                    alert('Profile updated successfully!');
                 } else {
                     alert('Profile update failed: ' + response.message);
                 }
@@ -144,6 +167,7 @@ $(document).ready(function() {
         });
     });
 });
+
 
 function saveProject(id) {
     var projectId = id;
@@ -172,7 +196,8 @@ function saveProject(id) {
             projectId: projectId,
             projectTitle: projectTitle,
             projectGithub: projectGithub,
-            projectDescription: projectDescription
+            projectDescription: projectDescription,
+            sid: localStorage.getItem('sid')
         },
         success: function(response) {
             const data = JSON.parse(response);
@@ -219,7 +244,8 @@ function deleteProject(project_name, id) {
         data: {
             formaction: 'delete_project',
             projectId: projectId,
-            projectTitle: project_name
+            projectTitle: project_name,
+            sid: localStorage.getItem('sid')
         },
         success: function(response) {
             const data = JSON.parse(response);
@@ -240,6 +266,7 @@ function showprojects() {
     $.ajax({
         url: "php/profile.php",
         method: "POST",
+        data:{sid: localStorage.getItem('sid')},
         success: function(response) {
             var data = JSON.parse(response);
             if (data.status === 'success') {
@@ -294,6 +321,7 @@ $(document).ready(function() {
         $.ajax({
             url: "php/profile.php",
             method: "POST",
+            data: {sid:localStorage.getItem('sid')},
             success: function(response) {
                 console.log(response); 
                 var data = JSON.parse(response);
@@ -334,14 +362,26 @@ $(document).ready(function() {
     });
 });
 
+
 // Function to initialize page content on window load
 window.onload = function() {
+
+    // Check if localStorage contains 'sid'
+    var sid = localStorage.getItem('sid');
+    
+    if (!sid) {
+        // If 'sid' is not present, redirect to login page
+        alert('Please login to access the Profile page !');
+        window.location.href = 'login.html';
+        return; // Stop further execution
+    }
     $.ajax({
         url: "php/profile.php",
         method: "POST",
+        data:{sid:localStorage.getItem('sid')},
         success: function(response) {
             data = JSON.parse(response); // Parse the JSON response
-
+              console.log(localStorage.getItem('sid'));
             if (data.status === 'success') {
                 const user = data.data; // Extract the user object from data
                 const projects = user.projects || []; // Extract the projects object from user object
@@ -358,7 +398,15 @@ window.onload = function() {
                 $('#age').text(calculateAge(user.dob));
                 $('#email').text(user.email);
                 $('#phone').text(user.phone);
-                $('#address').text(user.address);
+                if(user.address == null)
+                {
+                    $('#address').text('Address');
+                }  
+                else{
+                    $('#address').text(user.address);
+                }
+
+              
                 $('#roleText').text(user.role);
                 $('#instituteText').text(user.institute);
                 if (user.website == null) {
@@ -391,3 +439,63 @@ window.onload = function() {
 
 };
 
+
+
+$(document).ready(function() {
+    $('.logout').on('click', function() {
+        var sid = localStorage.getItem('sid');
+
+        if (sid) {
+            $.ajax({
+                url: "php/logout.php",
+                method: "POST",
+                data: { sid: sid },
+                dataType: "json", // Ensure JSON dataType for proper parsing
+                success: function(response) {
+                    if (response.status === 'success') {
+                        alert(response.message); // Optionally display a success message
+                        localStorage.removeItem('sid'); // Clear sid from localStorage
+                        window.location.href = 'index.html'; // Redirect to login page or another appropriate page
+                    } else {
+                        alert(response.message); // Display an error message if logout fails
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('AJAX Error:', status, error);
+                    alert('Failed to logout. Please try again.'); // Display an error message
+                }
+            });
+        } else {
+            alert('Session ID not found in localStorage. Please login again.'); // Display a message if sid is not found
+        }
+    });
+});
+
+$(document).ready(function() {
+    var cursor = $(".cursor");
+    var cursor2 = $(".cursor2");
+    var container = $(".main-body");
+
+    $(document).on("mousemove", function(e) {
+        cursor.css({
+            left: e.clientX + "px",
+            top: e.clientY + "px"
+        });
+        cursor2.css({
+            left: e.clientX + "px",
+            top: e.clientY + "px"
+        });
+    });
+
+    if (container.length) {
+        container.on("mouseover", function() {
+            cursor.addClass("active");
+        });
+
+        container.on("mouseout", function() {
+            cursor.removeClass("active");
+        });
+    } else {
+        console.error("Container element not found.");
+    }
+});
