@@ -11,7 +11,6 @@ $(document).ready(function() {
             data: formdata,
             success: function(response) {
                 var data=JSON.parse(response);
-                alert(data.status);
                 if (data.status === 'success') {
                     localStorage.setItem('sid', data.sid); 
                     window.location.href='profile.html';// Store SID in local storage
